@@ -1,4 +1,11 @@
-﻿// show coverletter for  a particular company selected.
+﻿// toggle of myaccount in navb bar
+$(function () {
+    $('[data-admin-menu]').hover(function () {
+        $('[data-admin-menu]').toggleClass('open')
+    });
+});
+
+// show coverletter for  a particular company selected.
 
 $(function () {
     var coverLetterSelect = $('#CoverLetterId');

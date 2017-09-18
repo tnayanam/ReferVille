@@ -253,20 +253,16 @@
     <Compile Include="ViewModel\SmallButtonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
     <Content Include="Content\superslides.css" />
     <Content Include="Scripts\CustomJS.js" />
     <Content Include="Scripts\mvcfoolproof.unobtrusive.js" />
-    <Content Include="Client Scripts\mvcfoolproof.unobtrusive.min.js" />
-    <Content Include="Client Scripts\MvcFoolproofJQueryValidation.js" />
-    <Content Include="Client Scripts\MvcFoolproofJQueryValidation.min.js" />
-    <Content Include="Client Scripts\MvcFoolproofValidation.js" />
-    <Content Include="Client Scripts\MvcFoolproofValidation.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Site_.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -341,9 +337,11 @@
     <Content Include="Views\CoverLetter\CoverLetterCenter.cshtml" />
     <Content Include="Views\CoverLetter\UploadCoverLetter.cshtml" />
     <Content Include="Views\Account\ShowMsg.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

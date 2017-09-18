@@ -15,20 +15,15 @@ namespace ReferVille
     {
         public async Task SendAsync(IdentityMessage message)
         {
-
             MailMessage email = new MailMessage(new MailAddress("noreply@myproject.com", "(do not reply)"),
                 new MailAddress(message.Destination));
-
             email.Subject = message.Subject;
             email.Body = message.Body;
-
             email.IsBodyHtml = true;
-
             using (var mailClient = new ReferVille.Models.GmailEmailService())
             {
                 //In order to use the original from email address, uncomment this line:
                 //email.From = new MailAddress(mailClient.UserName, "(do not reply)");
-
                 await mailClient.SendMailAsync(email);
             }
         }

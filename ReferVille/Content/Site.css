@@ -1,8 +1,13 @@
 ﻿body {
+    font-family: "Metrophobic", Helvetica, Arial, sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
-    font-family: "Metrophobic", Helvetica, Arial, sans-serif;
-    background-color: #f4f4f4;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -19,175 +24,53 @@ textarea {
     max-width: 280px;
 }
 
-/*changing the background colout for menu*/
+/*Make navbar transparent*/
+
 .navbar-inverse {
-    background-color: #FF9800;
-    border-color: #fefbf0;
+    background-color: #fff; 
+     border-color: #fff; 
 }
 
-/*logo size*/
-.navbar-brand {
-    font-size: 30px;
+/*remove nav bar margin bottom */
+.navbar {
+    margin-bottom: 0px;
 }
 
-/*change in colour for the menu items and main logo*/
-.navbar-inverse .navbar-brand {
-    color: #6a6967;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-    color: #6a6967;
-}
-
-/*position the text inside the banner images*/
-.inside-container {
-    position: relative;
-    width: 50%;
-    max-width: 500px;
-    left: 90px;
-    top: 30%;
-    padding: 10px 20px;
-}
-
-/*fix the top nav bar distance from the left side of the screen*/
-.container {
-    margin-left: 1%;
-}
-
-/*hover effect on the menu items*/
-.navbar-inverse .navbar-brand:hover {
-    color: #191606;
-}
-
-.navbar-inverse .navbar-nav > li > a:hover {
-    color: #191606;
-}
-
-/*create spaces between button in my account section*/
-.setBtnMargin {
-    margin: 3px;
-}
-
-/*adding a min container and will be putting rows inside it. added space so that it does not coincide with the main header/logo*/
-.main-container {
-    margin-top: 40px;
-}
-
-/*set colour for left nav menu*/
-.account-menu li {
-    background: #428bca;
-    border-radius: 2px;
-    margin-bottom: 1px;
-    border-left: 2px solid #2e353e;
-}
-
-/*set colour when men is active*/
-.active {
-    background-color: #FF9800 !important;
-}
-
-/*determines width of button text*/
-.btn-block {
-    color: #f7f7f7;
-    font-weight: 700;
-}
-
-.css-leftpad {
-    padding-left: 5px;
-}
-
-/*color of left nav links*/
-.list-group-item {
-    background-color: #515d6b;
-}
-/*left padding for left menu items*/
-.col-lg-3.account-menu {
-    padding-left: 40px;
-    border-left: 2px solid #2e353e;
-}
-
-/*color for the men items in the left border-color*/
-
-a.list-group-item {
-    font-size: medium;
-    color: white;
-    border-left-color: #c1b1b1;
-    border-left-width: thick;
-    border-bottom-color: white;
-    border-bottom-width: medium;
-}
-
-    a.list-group-item:hover, a.list-group-item:focus {
-        background-color: #357ebd;
-    }
-
-/*ToDO: horizontal scrolling prevention */
-/*html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+/*.img-responsive {
+    display: block;
+    height: auto !important;
+    max-width: 100% !important;
 }*/
 
-/*another work around to show table properly inside the main container*/
-/*.container-fluid.body-content {
-    padding-right: 10px;
+/*On hover effect*/
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #333333;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #333333;
+}
+
+/*width of the acount navbar maenu*/
+.css-width
+{
+    min-width:137px;
+}
+
+/*making the footer menu to be inline no bullet*/
+.css-footer li{
+    display:inline !important;
+    /*padding-right:2px;*/
+
+}
+/*padding for the footer left*/
+/*.css-padding{
+    padding-left:25px;
 }*/
 
-/*other soltuion
-    <div class="container-fluid body-content">
-    change it to container class only.
-*/
-/*making button in table panel to occur in center vertically*/
-.panel-heading {
-    overflow: auto;
-    padding: 5px;
-}
-/*white color to the link element in the panel "refer me*/
-.panel-title > a {
-    color: #fff;
-}
-/*font size of the label in stats field*/
-.label {
-    font-size: 95%;
+/*making the footer menu to be inline no bullet*/
+.css-footer li.pipe::before{
+    content:" | "
+
 }
 
-/*Reward page badge colour*/
-.badge {
-    background-color: #ff9800;
-    margin-left: 10px;
-}
-
-/*making sure that delete button in tablur rows does not go to next line*/
-.css-inline {
-    display: inline;
-}
-
-/*tooltip size*/
-.tooltip-inner {
-    padding: 10px;
-}
-
-/*all the styling for the button*/
-.css-btn {
-    color: #515d6b !important;
-    border-color: currentColor;
-    border-width: 2px;
-    overflow: hidden;
-    padding: 0;
-    width: 25px;
-    line-height: 21px;
-    background-color: transparent;
-    border-radius: 0px;
-}
-
-.fa {
-    font-size: 12px !important;
-}
-
-a.btn.css-btn {
-    margin: 0px 4px;
-}
-
-/*padding for the logo*/
-.css-padding {
-padding:0px;
-}
