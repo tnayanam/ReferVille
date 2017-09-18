@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ReferVille.Models.Referral>
+@using ReferVille.Helpers
+@using ReferVille.ViewModels
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="#" class="btn btn-primary btn-md pull-left">Nothing </a></h3>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Candidate.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReferralName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoverLetter.CoverLetterName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Resume.ResumeName)
+                </th>
+                <th>Refer Status</th>
+                <th>Options</th>
+                <th></th>
+            </tr>
+        </thead>
+        @if (Model.Count() == 0)
+        {
+            <tr><td colspan="5">No Referrals were found.</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @*@Html.ActionLink(item.Candidate.UserName, "CandidateDetails", new { candidateId = item.CandidateId})*@
+                            @Html.DisplayFor(modelItem => item.Candidate.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.ReferralName)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details", "CoverLetter", new { coverLetterId = @item.CoverLetterId})">@Html.DisplayFor(modelItem => item.CoverLetter.CoverLetterName)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details", "Resume", new { resumeId = @item.ResumeId})">@Html.DisplayFor(modelItem => item.Resume.ResumeName)</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("ReferralConfirmation", "Referrer", new { referralId = @item.ReferralId })" class="btn btn-primary btn-block margin-top-20">Refer Me</a>
+
+                        </td>
+                        @Html.Partial("_TableButtonsPartial", new SmallButtonViewModel
+                       {
+                           CandidateId = item.CandidateId
+                       })
+                        <td></td>
+                    </tr>
+                </tbody>
+            }
+        }
+    </table>
+</div>
+
+

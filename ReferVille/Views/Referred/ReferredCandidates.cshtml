@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ReferVille.Models.Referral>
+
+@{
+    ViewBag.Title = "ReferredCandidates";
+}
+
+<h2>ReferredCandidates</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReferralName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverLetterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResumeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateId)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ReferrerId)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReferralName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoverLetterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResumeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateId)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ReferrerId)
+        </td>*@
+
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReferralId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReferralId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReferralId })
+        </td>
+    </tr>
+ 
+}
+
+</table>
+
+@foreach (var item in Model)
+{
+    <img src="~/ImageFile?id=@item.ReferralId" alt="avatar" />
+}
+
+

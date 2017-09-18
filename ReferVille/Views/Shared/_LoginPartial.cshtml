@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+@using ReferVille.Helpers
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + @ClaimsPrincipal.Current.GetFirstName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                   </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Blog", "Blog", "Blog", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("About Us", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Contact Us", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li class="dropdown" data-admin-menu>
+            <a href="#">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                My Account
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/Account/Register">&nbsp;&nbsp;Register</a></li>
+                <li><a href="/Account/Login">&nbsp;&nbsp;Sign In</a></li>                
+            </ul>
+        </li>
+    </ul>
+}
+
+
+

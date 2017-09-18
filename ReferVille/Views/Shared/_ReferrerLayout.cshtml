@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-login">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("CONSULTANCY BRIDGE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @*<ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>*@
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="main-container">
+            <div class="row">
+                <div class="col-lg-3 account-menu">
+                    @Html.Partial("_LeftNavReferrerPartial")
+                </div>
+                <div class="col-lg-9">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <hr />
+        <footer class="Footer">
+            @*<div class="Footer-inner clear">
+                    <div class="sqs-layout sqs-grid-12 columns-12 Footer-blocks Footer-blocks--top sqs-alternate-block-style-container" data-layout-label="Footer Top Blocks" data-type="block-field" data-updated-on="1498063883873" id="footerBlocksTop">
+
+                    </div>
+                </div>*@
+        </footer>
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/mvcfoolproof.unobtrusive.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.3/jquery-confirm.min.js"></script>
+    <script src="https://use.fontawesome.com/b2224b235f.js"></script>
+    <script src="~/Scripts/CustomJS.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+<script>
+    $(function () {
+        $('[data-admin-menu]').hover(function () {
+            $('[data-admin-menu]').toggleClass('open')
+        });
+    });
+</script>
+
