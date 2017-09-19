@@ -31,8 +31,10 @@ namespace ReferVille.ViewModels
         public IEnumerable<SelectListItem> Companies { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
+        [Display(Name = "Last Name")]
         [Required]
         public string LastName { get; set; }
 

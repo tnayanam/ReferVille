@@ -2,6 +2,7 @@
     font-family: "Metrophobic", Helvetica, Arial, sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #F0F0F0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -71,6 +72,8 @@ textarea {
 /*making the footer menu to be inline no bullet*/
 .css-footer li.pipe::before{
     content:" | "
-
 }
 
+.css-margin{
+    margin-right: 20px;
+}
