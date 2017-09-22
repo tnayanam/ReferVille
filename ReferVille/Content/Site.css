@@ -74,6 +74,12 @@ textarea {
     content:" | "
 }
 
+/*ToDo: Remove it, bad design*/
 .css-margin{
     margin-right: 20px;
+}
+
+/*Set some padding from navbar and Menu elements in body*/
+.navbar-offset-padding{
+    padding-top:40px;
 }
