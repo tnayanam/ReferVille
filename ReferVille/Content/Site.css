@@ -64,10 +64,6 @@ textarea {
     /*padding-right:2px;*/
 
 }
-/*padding for the footer left*/
-/*.css-padding{
-    padding-left:25px;
-}*/
 
 /*making the footer menu to be inline no bullet*/
 .css-footer li.pipe::before{
@@ -83,3 +79,47 @@ textarea {
 .navbar-offset-padding{
     padding-top:40px;
 }
+
+.btn {
+     font-weight: 400;
+    border-style: solid !important;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    user-select: none;
+    background-image: none;
+    text-decoration: none;
+    font-weight: 400;
+    border-style: solid;
+}
+
+
+.btn-grey.btn-line, .btn-line.btn-unactive{
+    color: #515d6b !important; 
+}
+
+.btn-xxs.btn-circle, .btn-xxs.btn-square {
+    width: 25px;
+}
+
+.btn-xxs.btn-line, .btn-xxs.btn-ns {
+    border-width: 2px;
+}
+
+.btn-square {
+    overflow: hidden;
+    padding: 0;
+}
+
+.btn-line {
+    background: none;
+    border-color: currentColor;
+}
+
+.btn-xxs {
+    font-size: 1.2rem;
+    line-height: 21px;
+}
+

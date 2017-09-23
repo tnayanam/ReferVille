@@ -31,6 +31,7 @@ namespace ReferVille.Controllers
                .Include("CoverLetter")
                .Include("Resume")
                .Include("Degree")
+               .Include("Skill")
                .Include("Candidate").OrderByDescending(r => r.dateTime);
 
             return View(referrals);

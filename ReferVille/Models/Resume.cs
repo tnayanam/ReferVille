@@ -10,7 +10,7 @@ namespace ReferVille.Models
         public int ResumeId { get; set; }
 
         [Required]
-        [Display(Name = "RESUME NAME")]
+        [Display(Name = "Resume")]
         [StringLength(255)]
         public string ResumeName { get; set; }
 
