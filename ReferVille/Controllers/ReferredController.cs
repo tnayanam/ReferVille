@@ -23,7 +23,13 @@ namespace ReferVille.Controllers
         {
             var referrerId = User.Identity.GetUserId();
             var successfulReferrals = _context.Referrals
-                 .Where(r => (r.ReferrerId == referrerId) && (r.IsReferralSuccessful));
+                .Include("Company")
+               .Include("CoverLetter")
+               .Include("Resume")
+               .Include("Degree")
+               .Include("Skill")
+               .Include("Candidate")
+               .Where(r => (r.ReferrerId == referrerId) && (r.IsReferralSuccessful));
 
             return View(successfulReferrals);
         }

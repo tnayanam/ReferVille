@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ReferVille.Models.Referral>
+@using ReferVille.Helpers
+@using ReferVille.ViewModels
+
+@{
+    ViewBag.Title = "ReferredCandidates";
+}
+
+@*<h2>ReferredCandidates</h2>*@
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Candidates Referred</div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Candidate.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Skill.SkillName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Resume.ResumeName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CoverLetter.CoverLetterName)
+                    </th>
+                </tr>
+            </thead>
+            @if (Model.Count() == 0)
+            {
+                <tr><td colspan="5">No Candidates Referred.</td></tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                @*@Html.ActionLink(item.Candidate.UserName, "CandidateDetails", new { candidateId = item.CandidateId})*@
+                                @Html.DisplayFor(modelItem => item.Candidate.Email)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink(item.Candidate.UserName, "CandidateDetails", new { candidateId = item.CandidateId})*@
+                                @Html.DisplayFor(modelItem => item.Skill.SkillName)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Download", "Resume", new { resumeId = @item.ResumeId})">@Html.DisplayFor(modelItem => item.Resume.ResumeName)</a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details", "CoverLetter", new { coverLetterId = @item.CoverLetterId})">@Html.DisplayFor(modelItem => item.CoverLetter.CoverLetterName)</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            }
+        </table>
+    </div>
+</div>
+
+
+@*@foreach (var item in Model)
+    {
+        <img src="~/ImageFile?id=@item.ReferralId" alt="avatar" />
+    }*@
+
+

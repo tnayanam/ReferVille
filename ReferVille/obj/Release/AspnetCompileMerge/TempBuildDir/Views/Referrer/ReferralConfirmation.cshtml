@@ -1,0 +1,41 @@
+﻿@model ReferVille.ViewModels.ReferralInstanceViewModel
+
+@{
+    ViewBag.Title = "ReferralConfirmation";
+}
+
+<h2>@*ReferralConfirmation*@</h2>
+
+@using (Html.BeginForm("ReferralConfirmation", "Referrer", null,  FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m=>m.ReferralId)
+    
+    <div class="form-horizontal">
+        @*<h4>ReferralInstanceViewModel</h4>*@
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReferralStatusId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ReferralStatusId, Model.ReferralStatuses, "Reject Or Refer", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ReferralStatusId, "*", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group js-toggle" style="display:none;">
+            @Html.LabelFor(model => model.ProofDoc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ProofDoc, new { type = "file" })
+                @Html.ValidationMessageFor(model => model.ProofDoc, "*", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

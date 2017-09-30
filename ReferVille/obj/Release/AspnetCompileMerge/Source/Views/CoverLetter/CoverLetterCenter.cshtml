@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ReferVille.Models.CoverLetter>
+@using ReferVille.ViewModels
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="@Url.Action("UploadCoverLetter")" class="btn btn-primary">Upload Cover Letter </a></h3>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoverLetterName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.CompanyName)
+                </th>
+                <th>Options</th>
+                <th></th>
+            </tr>
+        </thead>
+        @if (Model.Count() == 0)
+            {
+            <tr><td colspan="4">No Cover Letters were found.</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("Details", "CoverLetter", new { coverLetterId = @item.CoverLetterId})">@Html.DisplayFor(modelItem => item.CoverLetterName)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.datetime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+                        </td>
+                        @Html.Partial("_TableButtonsPartial", new SmallButtonViewModel
+                   {
+                       CoverLetterId = item.CoverLetterId
+                   })
+                        <td></td>
+                    </tr>
+                </tbody>
+            }
+        }
+    </table>
+</div>
+
+@*@section Scripts
+    {
+        <script>
+            $('.js-popup').on('click', function () { return confirm('are you sure?'); });
+
+        </script>
+        @*<script>
+                $('.js-popup').on('click', function (e) {
+                    if (confirm("Are you sure?") == true) {
+
+                        $(function () {
+                                e.preventDefault();
+                                $.post($(this).attr("href"), function (data) {
+                                    // got the result in data variable. do whatever you want now
+                                    //may be reload the page
+                                });
+                        });
+                    } else {
+                        txt = "You pressed Cancel!";
+                    }
+                });
+            </script>
+    }*@
+
+

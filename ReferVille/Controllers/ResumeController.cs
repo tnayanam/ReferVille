@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ReferVille.Controllers
 {
-    [Authorize(Roles = "Candidate")]
+
     public class ResumeController : Controller
     {
         private ApplicationDbContext _context;
@@ -18,6 +18,7 @@ namespace ReferVille.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [Authorize(Roles = "Candidate")]
         public ActionResult ResumeCenter()
         {
             var candidateId = User.Identity.GetUserId();
@@ -28,6 +29,7 @@ namespace ReferVille.Controllers
             return View(resumeList);
         }
 
+        [Authorize(Roles = "Candidate, Referrer")]
         public FileContentResult Download(int resumeId)
         {
             var temp = _context
@@ -39,6 +41,7 @@ namespace ReferVille.Controllers
         }
 
         //ToDo: Need to code preview functionality.
+        [Authorize(Roles = "Candidate")]
         public FileStreamResult GetPDF(int resumeId)
         {
             var temp = _context.Resumes
@@ -49,18 +52,9 @@ namespace ReferVille.Controllers
             return streamResult;
         }
 
-        public FileContentResult Details(int resumeId)
-        {
-            var temp = _context.Resumes
-                .Where(f => f.ResumeId == resumeId).Single();
-            var fileRes = new FileContentResult(temp.Content.ToArray(), temp.ContentType);
-            fileRes.FileDownloadName = temp.FileName;
-
-            return fileRes;
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Candidate")]
         public ActionResult Delete(int resumeId)
         {
             var r = _context.Resumes
@@ -71,6 +65,7 @@ namespace ReferVille.Controllers
             return RedirectToAction("ResumeCenter");
         }
 
+        [Authorize(Roles = "Candidate")]
         public ActionResult UploadResume()
         {
             return View();
@@ -78,6 +73,7 @@ namespace ReferVille.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Candidate")]
         public ActionResult UploadResume(ResumeViewModel viewModel)
         {
             try

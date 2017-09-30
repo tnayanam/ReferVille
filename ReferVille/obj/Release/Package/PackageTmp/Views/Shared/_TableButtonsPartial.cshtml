@@ -1,0 +1,45 @@
+﻿@model ReferVille.ViewModels.SmallButtonViewModel
+@using ReferVille.ViewModels
+
+<td>
+    <div class="btn-group" role="group">
+        @Html.Partial("_SmallButtonPartial",
+               new SmallButtonViewModel
+               {
+                   Action = "Edit",
+                   ButtonType = "css-btn",
+                   Glyph = "pencil-square-o",
+                   Text = "Edit button",
+                   ReferralId = Model.ReferralId,
+                   ResumeId = Model.ResumeId,
+                   CoverLetterId = Model.CoverLetterId,
+                   Title = "Edit"
+               })
+
+        @Html.Partial("_SmallButtonPartial",
+              new SmallButtonViewModel
+              {
+                  Action = "Details",
+                  ButtonType = "css-btn",
+                  Glyph = "list-alt",
+                  Text = "Detail button",
+                  ReferralId = Model.ReferralId,
+                  ResumeId = Model.ResumeId,
+                  CoverLetterId = Model.CoverLetterId,
+                  CandidateId = Model.CandidateId,
+                  Title = "Details"
+              })
+
+        @using (Html.BeginForm("Delete", null, FormMethod.Post, new { @class = "delete-form css-inline" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.ResumeId)
+            @Html.HiddenFor(m => m.CoverLetterId)
+            @Html.HiddenFor(m => m.ReferralId)
+            <button type="submit" class="btn css-btn" data-toggle="tooltip" title="Delete">
+                <i class="fa fa-remove" aria-hidden="true"></i>
+            </button>
+        }
+    </div>
+</td>
+

@@ -1,0 +1,7 @@
+﻿@model ReferVille.ViewModels.SmallButtonViewModel
+
+<a type="button" class="btn @Model.ButtonType"
+     href="@Url.Action(Model.Action)@Model.ActionParameters" data-toggle="tooltip" title=@Model.Title>
+           <i class="fa fa-@Model.Glyph" aria-hidden="true"></i>
+   <span class="sr-only">@Model.Text</span>
+</a> 

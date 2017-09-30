@@ -1,0 +1,44 @@
+﻿<div class="row">
+    <div class="col-md-4 css-padding"><p>&copy;@(@DateTime.Now.Year - 1) -  @DateTime.Now.Year ReferVille. All Rights Reserved.</p></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+        <ul class="css-footer">
+            <li class="pipe"> @Html.ActionLink("About Us", "Index", "AboutUs", routeValues: null, htmlAttributes: new { id = "registerLink" }) </li>
+            <li class="pipe">@Html.ActionLink("Contact Us", "Index", "ContactUs", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li class="pipe">@Html.ActionLink("Terms of Service", "Index", "Tos", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li class="pipe">@Html.ActionLink("Privacy Policy", "Index", "Privacy", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li>
+                <a href="https://www.facebook.com/ReferVille-825521247625302/" target="_blank" rel="nofollow">
+                    <span class="fa-stack fa-sm">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/ReferVille" target="_blank" rel="nofollow">
+                    <span class="fa-stack fa-sm">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/18262549/" target="_blank" rel="nofollow">
+                    <span class="fa-stack fa-sm">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-linkedin fa-stack-1x"></i>
+                    </span>
+                </a>
+            </li>
+            @*<li>
+                <span class="fa-stack fa-sm">
+                    <i class="fa fa-square-o fa-stack-2x"></i>
+                    <i class="fa fa-google-plus fa-stack-1x"></i>
+                </span>
+            </li>*@
+        </ul>
+    </div>
+</div>
+
+

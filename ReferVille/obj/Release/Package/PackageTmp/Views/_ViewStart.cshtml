@@ -1,0 +1,15 @@
+﻿@if (!Request.IsAuthenticated)
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+else if (User.IsInRole("Candidate"))
+{
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+else if (User.IsInRole("Referrer"))
+{
+    Layout = "~/Views/Shared/_ReferrerLayout.cshtml";
+}
+else
+{ Layout = "~/Views/Shared/_Layout.cshtml";}

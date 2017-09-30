@@ -20,6 +20,7 @@ namespace ReferVille.ViewModels
         public int ReferralId { get; set; }
 
         [Required]
+        [Display(Name ="Application Status")]
         public int? ReferralStatusId { get; set; }
         public IEnumerable<SelectListItem> ReferralStatuses { get; set; }
 

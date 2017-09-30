@@ -109,5 +109,22 @@ namespace ReferVille.Controllers
                 .Where(u => u.Id == candidateId).SingleOrDefault();
             return View(candidate);
         }
+
+        // Canceling of the application by a referrer.
+        [HttpPost]
+        public JsonResult Cancel(int referralId)
+        {
+            var referrerId = User.Identity.GetUserId();
+            // add the instance in the referrer table
+            var instance = new ReferralInstance();
+            instance.ReferrerId = referrerId;
+            instance.ReferralId = referralId;
+            // set the status to rejected
+            instance.ReferralStatusId = 1;
+            _context.ReferralInstances.Add(instance);
+            _context.SaveChanges();
+
+            return Json(new { success = true });
+        }
     }
 }

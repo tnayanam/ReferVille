@@ -89,4 +89,45 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+// Delete Application by referrer
+$(".js-cancel-application").click(function (e) {
+    var link = $(e.target);
+    var referralId = $(this).data('referral-id');
+    var url = $(this).data('url');
+    debugger;
+    bootbox.dialog({
+        message: "Cancel Application?",
+        title: "Confirm",
+        buttons: {
+            no: {
+                label: "No",
+                className: "btn-default",
+                callback: function () {
+                    bootbox.hideAll();
+                }
+            },
+            yes: {
+                label: "Yes",
+                className: "btn-danger",
+                callback: function () {
+                    $.ajax({
+                        type: 'POST',
+                        //url: '/Referrer/Cancel',
+                        url:url,
+                        data: { referralId: referralId },
+                    })
+                    .done(function (result) {
+                        debugger;
+                        link.parents("tr").fadeOut(function () {
+                            $(this).remove();
+                        })
+                    })
+                    .fail(function () {
+                        alert("failed");
+                    });
+                }
+            }
+        }
+    });
+});
 

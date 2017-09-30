@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNet.Identity
+@using ReferVille.Helpers
+@if (Request.IsAuthenticated)
+{
+    <div class="list-group">
+        @Html.MenuLink("Refer Candidates", "ReferrerCenter", "Referrer", null, new { @class = "list-group-item" }, "fa fa-heart fa-fw")
+        @Html.MenuLink("Referred Candidates", "ReferredCandidates", "Referred", null, new { @class = "list-group-item" }, "fa fa-users fa-fw")
+        @Html.MenuLink("Rewards", null, null, null, new { @class = "list-group-item" }, "fa fa-usd fa-fw")
+        @Html.MenuLink("Settings", null, null, null, new { @class = "list-group-item" }, "fa fa-cog fa-fw")
+    </div>
+}
+
+
+
+

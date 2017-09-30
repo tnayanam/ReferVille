@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<ReferVille.Models.Referral>
 @using ReferVille.Helpers
 @using ReferVille.ViewModels
-
-
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Candidates</div>
+    <div class="panel-heading">Candidate</div>
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -28,7 +26,7 @@
             </thead>
             @if (Model.Count() == 0)
             {
-                <tr><td colspan="5">No Referrals were found.</td></tr>
+                <tr><td colspan="6">No Referrals were found.</td></tr>
             }
             else
             {
@@ -45,25 +43,31 @@
                                 @Html.DisplayFor(modelItem => item.Skill.SkillName)
                             </td>
                             <td>
-                                <a href="@Url.Action("Details", "Resume", new { resumeId = @item.ResumeId})">@Html.DisplayFor(modelItem => item.Resume.ResumeName)</a>
+                                <a href="@Url.Action("Download", "Resume", new { resumeId = @item.ResumeId})">@Html.DisplayFor(modelItem => item.Resume.ResumeName)</a>
                             </td>
+                            @if (item.CoverLetter == null)
+                            {
+                                <td>Not Found.</td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <a href="@Url.Action("Details", "CoverLetter", new { coverLetterId = @item.CoverLetterId})">@Html.DisplayFor(modelItem => item.CoverLetter.CoverLetterName)</a>
+                                </td>
+                            }
                             <td>
-                                <a href="@Url.Action("Details", "CoverLetter", new { coverLetterId = @item.CoverLetterId})">@Html.DisplayFor(modelItem => item.CoverLetter.CoverLetterName)</a>
-                            </td>
-                            <td>
-                                <a href="@Url.Action("ReferralConfirmation", "Referrer", new { referralId = @item.ReferralId })" class="btn btn-primary btn-xs">Refer Me</a>
+                                <a href="@Url.Action("ReferralConfirmation", "Referrer", new { referralId = @item.ReferralId })" class="btn btn-success btn-xs">Refer Me</a>
                             </td>
                             @*@Html.Partial("_TableButtonsPartial", new SmallButtonViewModel
-                             {
-                                  CandidateId = item.CandidateId
-                             })*@
-                            <td class="options alignRight">
-                                <a class="documentEdit btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Edit" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="documentTxt btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Download .txt version" href="#"><i class="fa fa-file-text-o"></i></a>
-                                <a class="documentPdf btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Download PDF " data-id="c5203511-02f7-44f7-90d0-8fcde673d1db"><i class="fa fa-cloud-download"></i></a>
-                                <a class="documentCopy btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Copy" href="#" data-name="My resume 3" data-ajax-document-id="c5203511-02f7-44f7-90d0-8fcde673d1db" data-modal-title="Copy Document" data-modal-msg="Are you sure you want to copy this document?"><i class="fa fa-copy"></i></a>
-                                <a class="documentDelete btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Delete" href="#" data-name="My resume 3" data-ajax-document-id="c5203511-02f7-44f7-90d0-8fcde673d1db" data-modal-title="Remove Document" data-modal-msg="Are you sure to delete this document?"><i class="fa fa-remove"></i></a>
-
+                                {
+                                     CandidateId = item.CandidateId
+                                })*@
+                            <td>
+                                <a class="documentEdit btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Edit" href="#" data-toggle="tooltip" title="Edit!"><i class="fa fa-pencil"></i></a>
+                                <a class="documentTxt btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Download .txt version" href="#" data-toggle="tooltip" title="Download Txt Version!"><i class="fa fa-file-text-o"></i></a>
+                                <a class="documentPdf btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-toggle="tooltip" title="Download PDF!"><i class="fa fa-cloud-download"></i></a>
+                                <a class="documentCopy btn btn-xxs btn-line btn-grey btn-square tooltipster tooltipstered" data-tooltipster="Copy" href="#" data-toggle="tooltip" title="Copy!"><i class="fa fa-copy"></i></a>
+                                <a class="documentDelete btn btn-xxs btn-line btn-grey btn-square js-cancel-application" href="#" data-toggle="tooltip" data-url="@Url.Action("Cancel", "Referrer")" data-referral-id="@item.ReferralId" title="Delete!"><i class="fa fa-remove"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -72,3 +76,45 @@
         </table>
     </div>
 </div>
+
+@*@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-cancel-application").click(function (e) {
+                var link = $(e.target);
+                bootbox.dialog({
+                    message: "Are you sure you want to cancel this gig?",
+                    title: "Confirm",
+                    buttons: {
+                        no: {
+                                    label: "No",
+                                    className: "btn-default",
+                                    callback: function () {
+                                        bootbox.hideAll();
+                                    }
+                                },
+                            yes: {
+                                    label: "Yes",
+                                    className: "btn-danger",
+                                    callback: function () {
+                                        $.ajax({
+                           url: "/api/gigs/" + link.attr("data-gig-id"),
+                           method: "DELETE"
+                       })
+                   .done(function () {
+                       link.parents("li").fadeOut(function () {
+                           $(this).remove();
+                       })
+                   })
+                   .fail(function () {
+                       alert("failed");
+                   });
+                                    }
+                                }
+                        }
+                });
+            });
+        });
+    </script>
+}*@

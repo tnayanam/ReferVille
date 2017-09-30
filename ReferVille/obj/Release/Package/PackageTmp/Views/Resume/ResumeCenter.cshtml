@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ReferVille.Models.Resume>
+@using ReferVille.ViewModels
+@{
+    ViewBag.Title = "Resume Center";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="@Url.Action("UploadResume")" class="btn btn-primary">Upload Resume </a></h3>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResumeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datetime)
+                </th>
+                <th>Options</th>
+                <th></th>
+            </tr>
+        </thead>
+        @if (Model.Count() == 0)
+        {
+            <tr><td colspan="4">No Resumes were found.</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("Download", "Resume", new { resumeId = @item.ResumeId})">@Html.DisplayFor(modelItem => item.ResumeName)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.datetime)
+                        </td>
+                        @Html.Partial("_TableButtonsPartial", new SmallButtonViewModel{
+                       ResumeId = item.ResumeId
+                   })
+                        <td></td>
+                    </tr>
+                </tbody>
+            }
+        }
+    </table>
+</div>
+
+     @foreach (var item in Model)
+            {
+<a href="@Url.Action("GetPDF", "Resume", new { resumeId = @item.ResumeId})">asdas</a>
+}
+@*@section Scripts {
+        <script>
+            $('.js-popup').on('click', function () { return confirm('are you sure?'); });
+        </script>
+    }*@
+
+
+
+
+
+
+

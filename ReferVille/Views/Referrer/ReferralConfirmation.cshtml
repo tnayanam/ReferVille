@@ -4,7 +4,7 @@
     ViewBag.Title = "ReferralConfirmation";
 }
 
-<h2>ReferralConfirmation</h2>
+<h2>@*ReferralConfirmation*@</h2>
 
 @using (Html.BeginForm("ReferralConfirmation", "Referrer", null,  FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -12,7 +12,7 @@
     @Html.HiddenFor(m=>m.ReferralId)
     
     <div class="form-horizontal">
-        <h4>ReferralInstanceViewModel</h4>
+        @*<h4>ReferralInstanceViewModel</h4>*@
         <hr />
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         <div class="form-group">
