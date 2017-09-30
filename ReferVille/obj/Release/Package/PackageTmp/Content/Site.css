@@ -1,8 +1,10 @@
 ﻿body {
-    font-family: "Metrophobic", Helvetica, Arial, sans-serif;
+
+font-family: 'Montserrat', sans-serif;
+
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #F0F0F0;
+    /*background-color: #F0F0F0;*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -55,7 +57,7 @@ textarea {
 /*width of the acount navbar maenu*/
 .css-width
 {
-    min-width:137px;
+    min-width:143px;
 }
 
 /*making the footer menu to be inline no bullet*/
@@ -125,7 +127,12 @@ textarea {
     line-height: 21px;
 }
 
-/* giving some space to left nav bar fnot awesomew icons*/
-span.css-leftpad {
-    margin-left: 5px;
+/*footer styling*/
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5f5;
 }
+
