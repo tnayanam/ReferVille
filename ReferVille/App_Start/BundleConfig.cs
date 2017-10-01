@@ -28,7 +28,8 @@ namespace ReferVille
                       "~/Scripts/bootbox.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                       //"~/Content/bootstrap.css",
+                       "~/Content/bootstrap-lumen.css",
                       "~/Content/superslides.css",
                       "~/Content/site.css"));
         }

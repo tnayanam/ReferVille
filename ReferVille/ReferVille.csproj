@@ -258,6 +258,7 @@
     <Compile Include="ViewModel\SmallButtonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\superslides.css" />
     <Content Include="Scripts\bootbox.min.js" />
