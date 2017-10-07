@@ -33,5 +33,10 @@ namespace ReferVille.Controllers
 
             return View(successfulReferrals);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
     }
 }

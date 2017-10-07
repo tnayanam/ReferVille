@@ -8,7 +8,7 @@
     <div class="panel-heading">
         <h3 class="panel-title"><a href="@Url.Action("UploadResume")" class="btn btn-primary">Upload Resume </a></h3>
     </div>
-    <table class="table">
+    <table class="table" id="example">
         <thead>
             <tr>
                 <th>
@@ -52,15 +52,18 @@
             {
 <a href="@Url.Action("GetPDF", "Resume", new { resumeId = @item.ResumeId})">asdas</a>
 }
-@*@section Scripts {
-        <script>
+@section Scripts {
+        @*<script>
             $('.js-popup').on('click', function () { return confirm('are you sure?'); });
-        </script>
-    }*@
+        </script>*@
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
 
 
-
-
+    }
 
 
 

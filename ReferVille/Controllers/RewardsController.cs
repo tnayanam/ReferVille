@@ -25,5 +25,10 @@ namespace ReferVille.Controllers
 
             return View();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
     }
 }

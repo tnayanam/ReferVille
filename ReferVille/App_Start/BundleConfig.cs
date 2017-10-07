@@ -27,9 +27,11 @@ namespace ReferVille
                       "~/Scripts/respond.js",
                       "~/Scripts/bootbox.min.js"));
 
+            //TODO: Adding BootSwatch Lumen theme caused on issus check developer tool
+            //https://stackoverflow.com/questions/46508793/how-to-solve-glyphicons-halflings-regular-woff2-err-aborted-issue-in-asp-net-mvc
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                       //"~/Content/bootstrap.css",
-                       "~/Content/bootstrap-lumen.css",
+                      // "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-lumen.css",
                       "~/Content/superslides.css",
                       "~/Content/site.css"));
         }

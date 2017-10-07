@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
+using ReferVille.Helpers;
 using ReferVille.Models;
 using ReferVille.ViewModels;
 using System;
 using System.Linq;
 using System.Web.Mvc;
-using ReferVille.Helpers;
 
 namespace ReferVille.Controllers
 {
@@ -117,7 +117,8 @@ namespace ReferVille.Controllers
                 {
                     var TempCompany = Utils.MakeFirstLetterCaps(viewModel.TempCompany);
                     var companyId = _context.Companies
-                        .Where(c => c.CompanyName == TempCompany).Select(c => c.CompanyId).SingleOrDefault();
+                        .Where(c => c.CompanyName == TempCompany)
+                        .Select(c => c.CompanyId).SingleOrDefault();
                     if (companyId != 0)
                     {
                         referral.CompanyId = companyId;
@@ -156,7 +157,8 @@ namespace ReferVille.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int referralId)
         {
-            var referralToBeDeleted = _context.Referrals.Where(d => d.ReferralId == referralId).Single();
+            var referralToBeDeleted = _context.Referrals
+                .Where(d => d.ReferralId == referralId).Single();
             _context.Referrals.Remove(referralToBeDeleted);
             _context.SaveChanges();
 
@@ -168,7 +170,9 @@ namespace ReferVille.Controllers
         {
             var candidateId = User.Identity.GetUserId();
             var coverletters = _context.CoverLetters
-                .Where(c => (c.CompanyId == companyId) && (c.CandidateId == candidateId)).Select(c => new
+                .Where(c => (c.CompanyId == companyId)
+                && (c.CandidateId == candidateId))
+                .Select(c => new
                 {
                     Value = c.CoverLetterId.ToString(),
                     Text = c.CoverLetterName
@@ -209,6 +213,11 @@ namespace ReferVille.Controllers
                 hasPreviousRequest = false;
 
             return Json(new { hasPreviousRequest = hasPreviousRequest });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
     }

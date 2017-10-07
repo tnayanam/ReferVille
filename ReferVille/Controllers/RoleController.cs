@@ -34,5 +34,10 @@ namespace ReferVille.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
     }
 }

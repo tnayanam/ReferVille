@@ -26,7 +26,7 @@ namespace ReferVille.Controllers
             var referrals = _context.Referrals
                 .Where(r => ((r.CompanyId == companyId)
                 && (!r.IsReferralSuccessful))
-                && !r.ReferralInstances.Any(e => (e.ReferrerId == referrerId) && (e.ReferralStatusId == 1)))
+                && !r.ReferralInstances.Any(e => (e.ReferrerId == referrerId) && (e.ReferralStatusId == ReferralStatus.Reject)))
                .Include("Company")
                .Include("CoverLetter")
                .Include("Resume")
@@ -72,13 +72,13 @@ namespace ReferVille.Controllers
                 .Where(r => r.ReferralId == viewModel.ReferralId).Single();
 
             var instance = new ReferralInstance();
-            if (viewModel.ReferralStatusId == 1)
+            if (viewModel.ReferralStatusId == ReferralStatus.Reject)
             {
                 instance.ReferrerId = referrerId;
                 instance.ReferralId = viewModel.ReferralId;
-                instance.ReferralStatusId = 1;
+                instance.ReferralStatusId = ReferralStatus.Reject;
             }
-            else if (viewModel.ReferralStatusId == 2)
+            else if (viewModel.ReferralStatusId == ReferralStatus.Accept)
             {
                 if (viewModel.ProofDoc != null && viewModel.ProofDoc.ContentLength > 0)
                 {
@@ -86,7 +86,7 @@ namespace ReferVille.Controllers
                     referral.ContentType = viewModel.ProofDoc.ContentType;
                     instance.ReferrerId = referrerId;
                     instance.ReferralId = referral.ReferralId;
-                    instance.ReferralStatusId = 2;
+                    instance.ReferralStatusId = ReferralStatus.Accept;
                     using (var reader = new System.IO.BinaryReader(viewModel.ProofDoc.InputStream))
                     {
                         referral.Content = reader.ReadBytes(viewModel.ProofDoc.ContentLength);
@@ -120,11 +120,16 @@ namespace ReferVille.Controllers
             instance.ReferrerId = referrerId;
             instance.ReferralId = referralId;
             // set the status to rejected
-            instance.ReferralStatusId = 1;
+            instance.ReferralStatusId = ReferralStatus.Reject;
             _context.ReferralInstances.Add(instance);
             _context.SaveChanges();
 
             return Json(new { success = true });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
     }
 }

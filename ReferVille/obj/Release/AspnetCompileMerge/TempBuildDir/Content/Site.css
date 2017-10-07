@@ -1,10 +1,6 @@
 ﻿body {
-
-font-family: 'Montserrat', sans-serif;
-
+    font-family: 'Montserrat', sans-serif;
     padding-top: 50px;
-    /*padding-bottom: 20px;*/
-    /*background-color: #F0F0F0;*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -30,8 +26,8 @@ textarea {
 /*Make navbar transparent*/
 
 .navbar-inverse {
-    background-color: #fff; 
-     border-color: #fff; 
+    background-color: #fff;
+    border-color: #fff;
 }
 
 /*remove nav bar margin bottom */
@@ -55,35 +51,33 @@ textarea {
 }
 
 /*width of the acount navbar maenu*/
-.css-width
-{
-    min-width:143px;
+.css-width {
+    min-width: 143px;
 }
 
 /*making the footer menu to be inline no bullet*/
-.css-footer li{
-    display:inline !important;
+.css-footer li {
+    display: inline !important;
     /*padding-right:2px;*/
-
 }
 
-/*making the footer menu to be inline no bullet*/
-.css-footer li.pipe::before{
-    content:" | "
-}
+    /*making the footer menu to be inline no bullet*/
+    .css-footer li.pipe::before {
+        content: " | ";
+    }
 
 /*ToDo: Remove it, bad design*/
-.css-margin{
+.css-margin {
     margin-right: 20px;
 }
 
 /*Set some padding from navbar and Menu elements in body*/
-.navbar-offset-padding{
-    padding-top:40px;
+.navbar-offset-padding {
+    /*padding-top: 40px;*/
 }
 
 .btn {
-     font-weight: 400;
+    font-weight: 400;
     border-style: solid !important;
     text-align: center;
     display: inline-block;
@@ -95,13 +89,13 @@ textarea {
     text-decoration: none;
     font-weight: 400;
     border-style: solid;
-    margin-left:2px !important;
-    border-radius:0px;
+    margin-left: 2px !important;
+    border-radius: 0px;
 }
 
 
-.btn-grey.btn-line, .btn-line.btn-unactive{
-    color: #515d6b !important; 
+.btn-grey.btn-line, .btn-line.btn-unactive {
+    color: #515d6b !important;
 }
 
 .btn-xxs.btn-circle, .btn-xxs.btn-square {
@@ -127,3 +121,40 @@ textarea {
     line-height: 21px;
 }
 
+
+.navbar.navbar-inverse.navbar-fixed-top {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.input-validation-error{
+    border:2px solid red;
+}
+
+.nomargin{
+       padding-left: 0px;
+     padding-right: 0px;
+     overflow-x: hidden;
+}
+
+.item{
+    position: relative;
+}
+
+.carousel-caption{
+   position: absolute; 
+   top: 45%; 
+   left: 0;
+   text-align: center; 
+   width: 100%; 
+}
+
+.imgbanner {
+    max-width: 100%;
+    max-height: 90vh;
+    height: auto;
+}
+
+.logo {
+    width: 130px;
+}

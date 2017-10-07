@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
+using ReferVille.Helpers;
 using ReferVille.Models;
 using ReferVille.ViewModels;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web.Mvc;
-using ReferVille.Helpers;
 
 namespace ReferVille.Controllers
 {
@@ -122,6 +122,11 @@ namespace ReferVille.Controllers
             }
             ConfigureViewModel(viewModel);
             return View(viewModel);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
     }
 }

@@ -11,5 +11,9 @@ namespace ReferVille.Models
         public string ReferralStatusType { get; set; }
 
         public ICollection<ReferralInstance> ReferralInstances { get; set; }
+
+        public static readonly int Accept = 2;
+
+        public static readonly int Reject = 1;
     }
 }

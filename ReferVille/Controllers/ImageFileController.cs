@@ -20,5 +20,10 @@ namespace ReferVille.Controllers
             var fileToRetrieve = _context.Referrals.Find(id);
             return File(fileToRetrieve.Content, fileToRetrieve.ContentType);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
     }
 }
