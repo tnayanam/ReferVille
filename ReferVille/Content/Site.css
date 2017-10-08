@@ -2,6 +2,26 @@
     font-family: 'Montserrat', sans-serif;
     padding-top: 50px;
 }
+/*#region Navbar */
+.navbar-inverse {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/*remove nav bar margin bottom */
+.navbar {
+    margin-bottom: 0px;
+}
+
+/*On hover effect*/
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #333333;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #333333;
+}
+/*#endregion */
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -23,32 +43,7 @@ textarea {
     max-width: 280px;
 }
 
-/*Make navbar transparent*/
 
-.navbar-inverse {
-    background-color: #fff;
-    border-color: #fff;
-}
-
-/*remove nav bar margin bottom */
-.navbar {
-    margin-bottom: 0px;
-}
-
-/*.img-responsive {
-    display: block;
-    height: auto !important;
-    max-width: 100% !important;
-}*/
-
-/*On hover effect*/
-.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-    color: #333333;
-}
-
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    color: #333333;
-}
 
 /*width of the acount navbar maenu*/
 .css-width {
@@ -71,11 +66,7 @@ textarea {
     margin-right: 20px;
 }
 
-/*Set some padding from navbar and Menu elements in body*/
-.navbar-offset-padding {
-    /*padding-top: 40px;*/
-}
-
+/*option button styling*/
 .btn {
     font-weight: 400;
     border-style: solid !important;
@@ -92,7 +83,6 @@ textarea {
     margin-left: 2px !important;
     border-radius: 0px;
 }
-
 
 .btn-grey.btn-line, .btn-line.btn-unactive {
     color: #515d6b !important;
@@ -121,40 +111,193 @@ textarea {
     line-height: 21px;
 }
 
-
-.navbar.navbar-inverse.navbar-fixed-top {
-    border-color: transparent;
-    background-color: transparent;
+/*validation for field*/
+.input-validation-error {
+    border: 2px solid red;
 }
 
-.input-validation-error{
-    border:2px solid red;
+.nomargin {
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-x: hidden;
 }
 
-.nomargin{
-       padding-left: 0px;
-     padding-right: 0px;
-     overflow-x: hidden;
-}
+/*#region Carousal */
 
-.item{
+.item {
     position: relative;
 }
 
-.carousel-caption{
-   position: absolute; 
-   top: 45%; 
-   left: 0;
-   text-align: center; 
-   width: 100%; 
+.carousel-caption {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    text-align: center;
+    width: 100%;
 }
 
 .imgbanner {
     max-width: 100%;
     max-height: 90vh;
-    height: auto;
+    height: 580px !important;
 }
 
 .logo {
     width: 130px;
+}
+
+.carousel-caption h2 {
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 68px;
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+@media (min-width: 768px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+.css-carousel-color {
+    background-color: #ff7b5c;
+}
+
+.css-carousel-control {
+    width: 5%;
+    top: 50%;
+    bottom: 50%;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption h2 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-caption h2 {
+        font-size: 38px;
+    }
+}
+
+
+.carousel-caption h5 {
+    padding: 0;
+    color: #FFF;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 30px 0 40px;
+    line-height: 1.5;
+    text-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption h5 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-caption h5 {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+}
+/*#endregion */
+.how {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.page-content {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+}
+
+.how .how-content-block {
+    background: #fff6f3;
+    padding-top: 60px;
+    padding-right: 120px;
+    padding-bottom: 20px;
+    padding-left: 120px;
+}
+
+.how .how-header {
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 58px;
+    font-weight: 700;
+}
+
+.how .how-content-list-item {
+    padding: 20px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.css-bold {
+    font-weight: bolder;
+}
+
+.how .how-content-list-item p {
+    padding: 0 0 0 30px;
+    margin: 0;
+}
+
+.how .how-content-list {
+    padding: 0;
+}
+
+.how-icon i {
+    color: #ff7b5c;
+}
+
+
+@media (max-width: 768px) {
+    .page-content {
+        min-width: 320px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .how .how-content {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .how .how-content-block {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 992px){
+.how .how-header {
+    font-size: 28px;
+}
+}
+
+
+@media (max-width: 992px){
+.how .how-content-list-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
 }
